@@ -65,5 +65,17 @@ class Users extends Controller {
       exit;
     }
   }
+
+  public function deleteUser($id) {
+    if($this->model('UsersModel')->deleteUser($id) > 0) {
+      Flasher::setFlash('berhasil', 'dihapus', 'success');
+      header('Location: ' . BASEURL . '/users');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'dihapus', 'danger');
+      header('Location: ' . BASEURL . '/users');
+      exit;
+    }
+  }
 }
 ?>

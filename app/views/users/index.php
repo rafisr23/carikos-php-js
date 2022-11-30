@@ -106,10 +106,10 @@
                 "alamat_rumah_user"
             ] ?></td>
             <td class="aksi">
-              <a href="<?= BASEURL; ?>/menu/ubah/<?= $menu['id'] ?>" data-bs-toggle="modal" data-bs-target="#formModal"
-                class="tampilModalUbah" data-id="<?= $menu['id'] ?>"><button class="btn btn-outline-primary me-2"><i
-                    class=" bi bi-pencil-fill"></i></button></a>
-              <a href="<?= BASEURL; ?>/menu/hapus/<?= $menu['id'] ?>"
+              <a href="<?= BASEURL; ?>/users/editUser/<?= $user['id_user'] ?>" data-bs-toggle="modal"
+                data-bs-target="#formModal" class="tampilModalUbah" data-id="<?= $user['id_user'] ?>"><button
+                  class="btn btn-outline-primary me-2"><i class=" bi bi-pencil-fill"></i></button></a>
+              <a href="<?= BASEURL ?>/users/deleteUser/<?= $user['id_user'] ?>"
                 onclick="return confirm('Yakin hapus data?');"><button class=" btn btn-outline-danger"><i
                     class="bi bi-trash-fill"></i></button></a>
             </td>
