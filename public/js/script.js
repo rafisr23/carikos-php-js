@@ -1,6 +1,5 @@
+console.log("hello");
 $(function () {
-  // console.log("hello");
-
   // ubah pada views user
   $(".tambahUser").on("click", function () {
     // alert("hello");

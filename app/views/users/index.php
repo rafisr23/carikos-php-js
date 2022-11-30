@@ -22,7 +22,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="<?= BASEURL ?>/users/addUser" method="post">
+          <form action="<?= BASEURL ?>/users/addUser" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" id="id">
             <div class="mb-3">
               <label for="nama_user" class="form-label">Nama</label>
@@ -31,13 +31,19 @@
             </div>
             <div class="mb-3">
               <label for="gender_user" class="form-label">Gender</label>
-              <input type="text" class="form-control" name="gender_user" id="gender_user"
-                placeholder="Masukan stok customer" autocomplete="off">
+              <!-- <input type="text" class="form-control" name="gender_user" id="gender_user"
+                placeholder="Masukan stok customer" autocomplete="off"> -->
+              <select class="form-select" aria-label="Default select example" name="gender_user">
+                <!-- <option selected>Gender</option> -->
+                <option value="pria">Pria</option>
+                <option value="wanita">Wanita</option>
+                <!-- <option value="3">Three</option> -->
+              </select>
             </div>
             <div class="mb-3">
               <label for="tgl_lahir_user" class="form-label">Tanggal Lahir</label>
               <input type="date" class="form-control" id="tgl_lahir_user" name="tgl_lahir_user"
-                placeholder="Masukan tgl lahir.." autocomplete="off">
+                placeholder="Masukan tanggal lahir" autocomplete="off">
             </div>
             <div class="mb-3">
               <label for="alamat_rumah_user" class="form-label">Alamat</label>
@@ -59,12 +65,13 @@
               <input type="password" class="form-control" name="password" id="password"
                 placeholder="Masukan password customer" autocomplete="off">
             </div> -->
-            <!-- <div class="mb-3">
-              <label for="formFile" class="form-label">Gambar</label>
-              <div class="frameFoto"><img src="" alt="" id="foto_ktp_user" class="mb-1" width="100px"></div>
-              <input class="form-control" type="file" name="foto_ktp_user" id="formFile fotoMenu">
-              <input type="hidden" name="fileFoto" id="fileFoto">
-            </div> -->
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Upload Foto KTP</label>
+              <img class="img-preview img-fluid mb-3 col-sm-5">
+              <!-- <div class="frameFoto"><img src="" alt="" id="foto_ktp_user" class="mb-1" width="100px"></div> -->
+              <input class="form-control" type="file" name="foto_ktp_user" id="foto_ktp_user" onchange="previewImage()">
+              <!-- <input type=" hidden" name="fileFoto" id="fileFoto"> -->
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -98,7 +105,14 @@
             <td class="col-3 align-middle text-start"><?= $user[
                 "alamat_rumah_user"
             ] ?></td>
-            <td class="aksi"></td>
+            <td class="aksi">
+              <a href="<?= BASEURL; ?>/menu/ubah/<?= $menu['id'] ?>" data-bs-toggle="modal" data-bs-target="#formModal"
+                class="tampilModalUbah" data-id="<?= $menu['id'] ?>"><button class="btn btn-outline-primary me-2"><i
+                    class=" bi bi-pencil-fill"></i></button></a>
+              <a href="<?= BASEURL; ?>/menu/hapus/<?= $menu['id'] ?>"
+                onclick="return confirm('Yakin hapus data?');"><button class=" btn btn-outline-danger"><i
+                    class="bi bi-trash-fill"></i></button></a>
+            </td>
           </tr>
           <?php $i++; ?>
           <?php endforeach; ?>
@@ -107,3 +121,15 @@
     </div>
   </div>
 </div>
+
+<script>
+function previewImage() {
+  const image = document.querySelector('#foto_ktp_user');
+  const imgPreview = document.querySelector('.img-preview');
+
+  imgPreview.style.display = 'block';
+
+  const blob = URL.createObjectURL(image.files[0]);
+  imgPreview.src = blob;
+}
+</script>

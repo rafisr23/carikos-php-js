@@ -4,13 +4,13 @@ class UsersModel {
 
   public function __construct()
   {
-      $this->db = new Database;
+    $this->db = new Database;
   }
 
   public function getAllUsers()
   {
-      $this->db->query('SELECT * FROM users');
-      return $this->db->resultSet();
+    $this->db->query('SELECT * FROM users');
+    return $this->db->resultSet();
   }
 
   public function getOneUsers($id) {
@@ -27,7 +27,7 @@ class UsersModel {
     // $no_tlp_user = $_POST['no_tlp_user'];
     // $foto_ktp_user = $_POST['foto_ktp_user'];
 
-    $query = "INSERT INTO users(id_user,nama_user, gender_user, tgl_lahir_user, alamat_rumah_user, no_tlp_user) VALUES (null,:nama_user, :gender_user, :tgl_lahir_user, :alamat_rumah_user, :no_tlp_user)";
+    $query = "INSERT INTO users(id_user,nama_user, gender_user, tgl_lahir_user, alamat_rumah_user, no_tlp_user, foto_ktp_user) VALUES (null,:nama_user, :gender_user, :tgl_lahir_user, :alamat_rumah_user, :no_tlp_user, :foto_ktp_user)";
 
     $this->db->query($query);
     $this->db->bind('nama_user', $data["nama_user"]);
@@ -35,7 +35,7 @@ class UsersModel {
     $this->db->bind('tgl_lahir_user', $data["tgl_lahir_user"]);
     $this->db->bind('alamat_rumah_user', $data["alamat_rumah_user"]);
     $this->db->bind('no_tlp_user', $data["no_tlp_user"]);
-    // $this->db->bind('foto_ktp_user', $data["foto_ktp_user"]);
+    $this->db->bind('foto_ktp_user', $data["foto_ktp_user"]);
     
     $this->db->execute();
     return $this->db->rowCount();
@@ -71,6 +71,8 @@ class UsersModel {
     $this->db->execute();
     return $this->db->rowCount();
   }
+
+  
 
   
 }
