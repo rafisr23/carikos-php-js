@@ -13,8 +13,10 @@ class UsersModel {
     return $this->db->resultSet();
   }
 
-  public function getOneUsers($id) {
-    $this->db->query('SELECT * FROM users WHERE id = :id');
+  public function getUserById($id) {
+    $query = "SELECT * FROM users WHERE id_user= :id";
+    // $this->db->query('SELECT * FROM users WHERE id = :id');
+    $this->db->query($query);
     $this->db->bind('id', $id);
     return $this->db->single();
   }
@@ -42,13 +44,13 @@ class UsersModel {
   }
 
   public function updateUser($data) {
-    $query = "UPDATE user SET
+    $query = "UPDATE users SET
               nama_user = :nama_user,
               gender_user = :gender_user,
               tgl_lahir_user = :tgl_lahir_user,
               alamat_rumah_user = :alamat_rumah_user,
               no_tlp_user = :no_tlp_user,
-              -- foto_ktp_user = :foto_ktp_user
+              foto_ktp_user = :foto_ktp_user
               WHERE id_user = :id_user";
 
     $this->db->query($query);
@@ -57,7 +59,8 @@ class UsersModel {
     $this->db->bind('tgl_lahir_user', $data["tgl_lahir_user"]);
     $this->db->bind('alamat_rumah_user', $data["alamat_rumah_user"]);
     $this->db->bind('no_tlp_user', $data["no_tlp_user"]);
-    // $this->db->bind('foto_ktp_user', $data["foto_ktp_user"]);
+    $this->db->bind('foto_ktp_user', $data["foto_ktp_user"]);
+    $this->db->bind('id_user', $data["id_user"]);
 
     $this->db->execute();
     return $this->db->rowCount();

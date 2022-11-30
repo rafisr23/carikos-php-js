@@ -23,7 +23,7 @@
         </div>
         <div class="modal-body">
           <form action="<?= BASEURL ?>/users/addUser" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id" id="id">
+            <input type="hidden" name="id_user" id="id_user">
             <div class="mb-3">
               <label for="nama_user" class="form-label">Nama</label>
               <input type="text" class="form-control" id="nama_user" name="nama_user" placeholder="Masukan nama user"
@@ -33,7 +33,7 @@
               <label for="gender_user" class="form-label">Gender</label>
               <!-- <input type="text" class="form-control" name="gender_user" id="gender_user"
                 placeholder="Masukan stok customer" autocomplete="off"> -->
-              <select class="form-select" aria-label="Default select example" name="gender_user">
+              <select class="form-select" aria-label="Default select example" name="gender_user" id="gender_user">
                 <!-- <option selected>Gender</option> -->
                 <option value="pria">Pria</option>
                 <option value="wanita">Wanita</option>
@@ -70,7 +70,8 @@
               <img class="img-preview img-fluid mb-3 col-sm-5">
               <!-- <div class="frameFoto"><img src="" alt="" id="foto_ktp_user" class="mb-1" width="100px"></div> -->
               <input class="form-control" type="file" name="foto_ktp_user" id="foto_ktp_user" onchange="previewImage()">
-              <!-- <input type=" hidden" name="fileFoto" id="fileFoto"> -->
+              <input type="hidden" name="foto_ktp_user_old" id="foto_ktp_user_old">
+              <!-- <input type="hidden" name="foto_ktp_user" id="fileFoto"> -->
             </div>
         </div>
         <div class="modal-footer">

@@ -77,5 +77,37 @@ class Users extends Controller {
       exit;
     }
   }
+
+  public function editUser() {
+    $_POST['foto_ktp_user'] = $this->uploadFoto();
+
+    if($_POST['foto_ktp_user'] == false) {
+      $_POST['foto_ktp_user'] = $_POST['foto_ktp_user_old'];
+
+      if ($this->model('UsersModel')->updateUser($_POST) > 0) {
+        Flasher::setFlash('berhasil', 'diubah', 'success');
+        header('Location: ' . BASEURL . '/users');
+        exit;
+      } else {
+        Flasher::setFlash('gagal', 'diubah', 'danger');
+        header('Location: ' . BASEURL . '/users');
+        exit;
+      }
+    } else {
+      if ($this->model('UsersModel')->updateUser($_POST) > 0) {
+        Flasher::setFlash('berhasil', 'diubah', 'success');
+        header('Location: ' . BASEURL . '/users');
+        exit;
+      } else {
+        Flasher::setFlash('gagal', 'diubah', 'danger');
+        header('Location: ' . BASEURL . '/users');
+        exit;
+      }
+    }
+  }
+
+  public function getEdit() {
+    echo json_encode($this->model('UsersModel')->getUserById($_POST['id']));
+  }
 }
 ?>

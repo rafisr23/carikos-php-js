@@ -1,37 +1,50 @@
-console.log("hello");
+// console.log("hello");
 $(function () {
   // ubah pada views user
   $(".tambahUser").on("click", function () {
     // alert("hello");
+    $(".modal-body form").attr("action", "http://localhost/pemweb-project-uts2/public/users/addUser");
     $("#judulModal").html("Tambah Data User");
     $(".modal-footer button[type=submit]").html("Tambah Data");
-    $(".frameFoto").hide();
+    $("#nama_user").val("");
+    $("#gender_user").val("pria");
+    $("#tgl_lahir_user").val("");
+    $("#alamat_rumah_user").val("");
+    $("#no_tlp_user").val("");
+    $("#fileFoto").val("");
+    $(".img-preview").attr("src", "");
+    $(".img-preview").hide();
   });
 
-  $(".tampilModalUbah").on("click", function () {
+  $(".tampilModalUbah").on("click", function (e) {
+    e.preventDefault();
     $("#judulModal").html("Ubah Data User");
     $(".modal-footer button[type=submit").html("Ubah Data");
-    $(".modal-body form").attr("action", "http://localhost/phpmvc/public/menu/ubah");
+    $(".modal-body form").attr("action", "http://localhost/pemweb-project-uts2/public/users/editUser");
 
     const id = $(this).data("id");
+    // console.log(id);
+    // console.log("OK");
 
     $.ajax({
-      url: "http://localhost/phpmvc/public/menu/getubah",
-      data: { id: id },
+      url: "http://localhost/pemweb-project-uts2/public/users/getEdit",
+      data: { id: JSON.parse(JSON.stringify(id)) },
       method: "post",
       dataType: "json",
       success: function (data) {
-        $("#kategori").val(data.kategori);
-        $("#nama").val(data.nama);
-        $("#deskripsi").val(data.deskripsi);
-        $("#harga").val(data.harga);
-        $("#stok").val(data.stok);
-        $("#id").val(data.id);
-        $(".frameFoto").show();
-        $("#fotoMenu").val(data.foto);
-        $("#fileFoto").val(data.foto);
-        $("#foto").attr("src", "http://localhost/phpmvc/public/img/" + data.foto);
-        $("#foto").attr("class", "mb-3");
+        console.log(data);
+        $("#nama_user").val(data.nama_user);
+        $("#gender_user").val(data.gender_user);
+        $("#tgl_lahir_user").val(data.tgl_lahir_user);
+        $("#alamat_rumah_user").val(data.alamat_rumah_user);
+        $("#no_tlp_user").val(data.no_tlp_user);
+        $("#id_user").val(data.id_user);
+        // $(".frameFoto").show();
+        // $("#fotoMenu").val(data.foto);
+        $("#foto_ktp_user_old").val(data.foto_ktp_user);
+        $(".img-preview").css("display", "block");
+        $(".img-preview").attr("src", "http://localhost/pemweb-project-uts2/public/img/" + data.foto_ktp_user);
+        // $("#foto").attr("class", "mb-3");
       },
     });
   });
