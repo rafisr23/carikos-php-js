@@ -51,45 +51,51 @@ $(function () {
 
   // --------------------------------------------------------
 
-  // ubah pada views customer
-  $(".tambahCust").on("click", function () {
-    $("#judulModal").html("Tambah Data Customer");
-    $(".modal-footer button[type=submit").html("Tambah Data");
-    $(".hilangButton").show();
-    $(".modal-body input").prop("disabled", false);
-    $(".modal-body textarea").prop("disabled", false);
+  // UBAH PADA VIEW OWNER
+  $(".tambahOwner").on("click", function () {
+    // alert("hello");
+    $(".modal-body form").attr("action", "http://localhost/pemweb-project-uts2/public/owners/addOwner");
+    $("#judulModal").html("Tambah Data Pemilik Kost");
+    $(".modal-footer button[type=submit]").html("Tambah Data");
+    $("#nama_user").val("");
+    $("#gender_user").val("pria");
+    $("#tgl_lahir_user").val("");
+    $("#alamat_rumah_user").val("");
+    $("#no_tlp_user").val("");
+    $("#fileFoto").val("");
+    $(".img-preview").attr("src", "");
+    $(".img-preview").hide();
   });
 
-  // details
-  $(".tampilDetailCust").on("click", function (e) {
+  $(".tampilModalUbahOwner").on("click", function (e) {
     e.preventDefault();
-    $("#judulModal").html("Detail Customer");
-    $(".hilangButton").hide();
+    $("#judulModal").html("Ubah Data Pemilik Kost");
+    $(".modal-footer button[type=submit").html("Ubah Data");
+    $(".modal-body form").attr("action", "http://localhost/pemweb-project-uts2/public/owners/editOwner");
 
     const id = $(this).data("id");
-    console.log(id);
+    // console.log(id);
     // console.log("OK");
 
     $.ajax({
-      url: "http://localhost/phpmvc/public/customer/getdetail",
+      url: "http://localhost/pemweb-project-uts2/public/owners/getEdit",
       data: { id: JSON.parse(JSON.stringify(id)) },
-      method: "POST",
+      method: "post",
       dataType: "json",
       success: function (data) {
-        // console.log(result);
-
-        $("#nama").val(data.nama);
-        $("#tgl_lahir").val(data.tgl_lahir);
-        $("#alamat").val(data.alamat);
-        $("#email").val(data.email);
-        $("#username").val(data.username);
-        $("#password").val(data.password);
-        $("#id").val(data.id_cust);
-        $(".modal-body input").prop("disabled", true);
-        $(".modal-body textarea").prop("disabled", true);
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        console.log(textStatus, errorThrown);
+        console.log(data);
+        $("#nama_owner").val(data.nama_owner);
+        $("#gender_owner").val(data.gender_owner);
+        $("#tgl_lahir_owner").val(data.tgl_lahir_owner);
+        $("#alamat_rumah_owner").val(data.alamat_rumah_owner);
+        $("#no_tlp_owner").val(data.no_tlp_owner);
+        $("#id_owner").val(data.id_owner);
+        // $(".frameFoto").show();
+        // $("#fotoMenu").val(data.foto);
+        $("#foto_ktp_owner_old").val(data.foto_ktp_owner);
+        $(".img-preview").css("display", "block");
+        $(".img-preview").attr("src", "http://localhost/pemweb-project-uts2/public/img/" + data.foto_ktp_owner);
+        // $("#foto").attr("class", "mb-3");
       },
     });
   });
