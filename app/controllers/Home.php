@@ -4,7 +4,7 @@ class Home extends Controller
     public function index()
     {
         // echo "Hello World!";
-        $data['pageTitle'] = 'Welcome to PHP MVC Template';
+        $data['pageTitle'] = 'CARIKOS | Home';
 
         $this->view('templates/header', $data);
         $this->view('home/index', $data);
