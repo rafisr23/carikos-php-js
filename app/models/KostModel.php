@@ -41,6 +41,15 @@ class KostModel {
     $this->db->execute();
     return $this->db->rowCount();
   }
+
+  public function deleteKost($id) {
+    $query = "DELETE FROM kost WHERE id_kost = :id_kost";
+    $this->db->query($query);
+    $this->db->bind('id_kost', $id);
+
+    $this->db->execute();
+    return $this->db->rowCount();
+  }
 }
 
 ?>

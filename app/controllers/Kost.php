@@ -32,6 +32,18 @@ class Kost extends Controller {
       exit;
     }
   }
+
+  public function deleteKost($id) {
+    if($this->model('KostModel')->deleteKost($id) > 0) {
+      Flasher::setFlash('berhasil', 'dihapus', 'success');
+      header('Location: ' . BASEURL . '/kost');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'dihapus', 'danger');
+      header('Location: ' . BASEURL . '/kost');
+      exit;
+    }
+  }
 }
 
 ?>
