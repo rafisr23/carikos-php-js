@@ -1,5 +1,5 @@
 <div class="page-heading">
-  <h3>Profile Statistics</h3>
+  <h2><?= $data["pageTitle"] ?></h2>
 </div>
 <div class="page-content">
   <section class="row">

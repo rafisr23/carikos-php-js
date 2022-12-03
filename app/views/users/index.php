@@ -1,5 +1,5 @@
-<div class="Page Title">
-  <h1><?= $data["pageTitle"] ?></h1>
+<div class="page-heading">
+  <h2><?= $data["pageTitle"] ?></h2>
 </div>
 
 <div class="row">
