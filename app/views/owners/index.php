@@ -128,4 +128,5 @@ function previewImage() {
   const blob = URL.createObjectURL(image.files[0]);
   imgPreview.src = blob;
 }
+// console.log('test');
 </script>

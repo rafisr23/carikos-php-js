@@ -8,8 +8,8 @@ class Kost extends Controller {
 
     $data['active'] = $first_part;
     $data['pageTitle'] = 'CARIKOS | Daftar Kost';
-
     $data['kost'] = $this->model('KostModel')->getAllKostWithOwners();
+    $data['owners'] = $this->model('OwnerModel')->getAllOwners();
 
     // var_dump($data['kost']);
     // return;
@@ -40,6 +40,22 @@ class Kost extends Controller {
       exit;
     } else {
       Flasher::setFlash('gagal', 'dihapus', 'danger');
+      header('Location: ' . BASEURL . '/kost');
+      exit;
+    }
+  }
+
+  public function getEdit() {
+    echo json_encode($this->model('KostModel')->getKostById($_POST['id']));
+  }
+
+  public function editKost() {
+    if ($this->model('KostModel')->updateKost($_POST) > 0) {
+      Flasher::setFlash('berhasil', 'diubah', 'success');
+      header('Location: ' . BASEURL . '/kost');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'diubah', 'danger');
       header('Location: ' . BASEURL . '/kost');
       exit;
     }

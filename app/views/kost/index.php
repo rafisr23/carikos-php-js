@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <button type="button" class="btn btn-primary tambahKost" data-bs-toggle="modal" data-bs-target="#formModal">
+  <button type="button" class="btn btn-primary btnTambahKost" data-bs-toggle="modal" data-bs-target="#formModal">
     <i class="bi bi-plus-circle me-2"></i>Tambah
   </button>
 
@@ -18,7 +18,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="judulModal">Detail Customer</h5>
+          <h5 class="modal-title fw-bold" id="judulModalKost">Detail Customer</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -36,7 +36,7 @@
               <select class="form-select" aria-label="Default select example" name="id_owner" id="id_owner">
                 <!-- <option selected>Gender</option> -->
                 <option value="none" class="text-secondary">Pilih pemilik kost</option>
-                <?php foreach($data['kost'] as $kost): ?>
+                <?php foreach($data['owners'] as $kost): ?>
                 <option value="<?= $kost['id_owner'] ?>"><?= $kost['nama_owner'] ?></option>
                 <?php endforeach; ?>
               </select>
@@ -105,7 +105,7 @@
             <td class="col-3 align-middle text-start"><?= $kost["no_tlp_owner"] ?></td>
             <td class="aksi">
               <a href="<?= BASEURL; ?>/kost/editKost/<?= $kost['id_kost'] ?>" data-bs-toggle="modal"
-                data-bs-target="#formModal" class="tampilModalUbahkost" data-id="<?= $kost['id_kost'] ?>"><button
+                data-bs-target="#formModal" class="tampilModalUbahKost" data-id="<?= $kost['id_kost'] ?>"><button
                   class="btn btn-outline-primary me-2"><i class=" bi bi-pencil-fill"></i></button></a>
               <a href="<?= BASEURL ?>/kost/deleteKost/<?= $kost['id_kost'] ?>"
                 onclick="return confirm('Yakin hapus data?');"><button class=" btn btn-outline-danger"><i
@@ -119,3 +119,5 @@
     </div>
   </div>
 </div>
+
+<script src="<?= BASEURL ?>/js/script.js"></script>

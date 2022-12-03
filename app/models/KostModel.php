@@ -50,6 +50,27 @@ class KostModel {
     $this->db->execute();
     return $this->db->rowCount();
   }
+
+  public function updateKost($data) {
+    $query = "UPDATE kost SET 
+    id_owner = :id_owner, 
+    nama_kost = :nama_kost, 
+    alamat_kost = :alamat_kost, 
+    kategori_kost = :kategori_kost, 
+    fasilitas_kost = :fasilitas_kost 
+    WHERE id_kost = :id_kost";
+
+    $this->db->query($query);
+    $this->db->bind('id_kost', $data['id_kost']);
+    $this->db->bind('id_owner', $data["id_owner"]);
+    $this->db->bind('nama_kost', $data["nama_kost"]);
+    $this->db->bind('alamat_kost', $data["alamat_kost"]);
+    $this->db->bind('kategori_kost', $data["kategori_kost"]);
+    $this->db->bind('fasilitas_kost', $data["fasilitas_kost"]);
+
+    $this->db->execute();
+    return $this->db->rowCount();
+  }
 }
 
 ?>
