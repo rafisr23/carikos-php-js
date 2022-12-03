@@ -70,20 +70,20 @@
                 <span>Dashboard</span>
               </a>
             </li>
-            <li class="sidebar-item has-sub <?= ($data['active'] == 'users' || 'owners') ? 'active' : ''; ?>">
+            <li class="sidebar-item has-sub <?= ($data['active'] === 'users' || 'owners' ) ? 'active' : ''; ?>">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-collection-fill"></i>
                 <span>Tables</span>
               </a>
               <ul class="submenu">
-                <li class="submenu-item <?= ($data['active'] == 'users') ? 'active' : ''; ?>">
+                <li class="submenu-item <?= ($data['active'] === 'users') ? 'active' : ''; ?>">
                   <a href="<?= BASEURL; ?>/users">Users</a>
                 </li>
-                <li class="submenu-item <?= ($data['active'] == 'owners') ? 'active' : ''; ?>">
+                <li class="submenu-item <?= ($data['active'] === 'owners') ? 'active' : ''; ?>">
                   <a href="<?= BASEURL; ?>/owners">Owners</a>
                 </li>
                 <li class="submenu-item">
-                  <a href="extra-component-toastify.html">Kost</a>
+                  <a href="<?= BASEURL; ?>/kost">Kost</a>
                 </li>
                 <li class="submenu-item">
                   <a href="extra-component-rating.html">Kamar</a>

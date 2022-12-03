@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="Page Title">
-    <h1><?= $data["pageTitle"] ?></h1>
-  </div>
+<div class="page-heading">
+  <h2><?= $data["pageTitle"] ?></h2>
+</div>
+<div class="page-content">
 
   <div class="row">
     <div class="col-lg">
@@ -31,13 +31,9 @@
             </div>
             <div class="mb-3">
               <label for="gender_owner" class="form-label">Gender</label>
-              <!-- <input type="text" class="form-control" name="gender_user" id="gender_user"
-                placeholder="Masukan stok customer" autocomplete="off"> -->
               <select class="form-select" aria-label="Default select example" name="gender_owner" id="gender_owner">
-                <!-- <option selected>Gender</option> -->
                 <option value="pria">Pria</option>
                 <option value="wanita">Wanita</option>
-                <!-- <option value="3">Three</option> -->
               </select>
             </div>
             <div class="mb-3">

@@ -9,6 +9,10 @@ class Home extends Controller
         $components = explode('/', $path);
         $first_part = $components[3];
 
+        // var_dump($components[3]);
+        // echo $first_part;
+        // return;
+
         $data['active'] = $first_part;
         $data['pageTitle'] = 'CARIKOS | Home';
 
