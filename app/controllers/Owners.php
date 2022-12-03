@@ -3,6 +3,12 @@ class Owners extends Controller {
   public function index()
   {
       // echo "Hello World!";
+      $directoryURI = $_SERVER['REQUEST_URI'];
+      $path = parse_url($directoryURI, PHP_URL_PATH);
+      $components = explode('/', $path);
+      $first_part = $components[3];
+
+      $data['active'] = $first_part;
       $data['pageTitle'] = 'CARIKOS | Daftar Pemilik Kost';
       $data['owners'] = $this->model('OwnerModel')->getAllOwners();
 

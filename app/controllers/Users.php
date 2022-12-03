@@ -3,8 +3,18 @@ class Users extends Controller {
   public function index()
   {
       // echo "Hello World!";
+      $directoryURI = $_SERVER['REQUEST_URI'];
+      $path = parse_url($directoryURI, PHP_URL_PATH);
+      $components = explode('/', $path);
+      $first_part = $components[3];
+
+      $data['active'] = $first_part;
       $data['pageTitle'] = 'CARIKOS | Daftar Pengguna';
       $data['users'] = $this->model('UsersModel')->getAllUsers();
+
+      // var_dump($components[3]);
+      // echo $first_part;
+      // return;
 
       $this->view('templates/header', $data);
       $this->view('users/index', $data);

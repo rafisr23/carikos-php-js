@@ -64,22 +64,22 @@
         <div class="sidebar-menu">
           <ul class="menu">
             <li class="sidebar-title">Menu</li>
-            <li class="sidebar-item active">
+            <li class="sidebar-item <?= ($data['active'] == '') ? 'active' : ''; ?>">
               <a href="<?= BASEURL; ?>" class="sidebar-link">
                 <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
               </a>
             </li>
-            <li class="sidebar-item has-sub">
+            <li class="sidebar-item has-sub <?= ($data['active'] == 'users' || 'owners') ? 'active' : ''; ?>">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-collection-fill"></i>
                 <span>Tables</span>
               </a>
               <ul class="submenu">
-                <li class="submenu-item">
+                <li class="submenu-item <?= ($data['active'] == 'users') ? 'active' : ''; ?>">
                   <a href="<?= BASEURL; ?>/users">Users</a>
                 </li>
-                <li class="submenu-item">
+                <li class="submenu-item <?= ($data['active'] == 'owners') ? 'active' : ''; ?>">
                   <a href="<?= BASEURL; ?>/owners">Owners</a>
                 </li>
                 <li class="submenu-item">
