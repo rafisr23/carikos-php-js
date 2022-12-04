@@ -25,13 +25,21 @@
           <input type="hidden" name="id_transaksi" id="id_transaksi">
           <div class="mb-3">
             <label for="id_user" class="form-label">Nama</label>
-            <input type="text" class="form-control" id="id_user" name="id_user" placeholder="Masukan nama user"
-              autocomplete="off">
+            <select class="form-select" aria-label="Default select example" name="id_user" id="id_user">
+              <option value="none" class="text-secondary">Pilih nama pembeli</option>
+              <?php foreach($data['user'] as $user): ?>
+              <option value="<?= $user['id_user'] ?>"><?= $user['nama_user'] ?></option>
+              <?php endforeach; ?>
+            </select>
           </div>
           <div class="mb-3">
             <label for="id_kamar" class="form-label">Kamar Kost</label>
-            <input type="text" class="form-control" id="id_kamar" name="id_kamar" placeholder="Masukan nama kamar kost"
-              autocomplete="off">
+            <select class="form-select" aria-label="Default select example" name="id_kamar" id="id_kamar">
+              <option value="none" class="text-secondary">Pilih kamar kost</option>
+              <?php foreach($data['kost'] as $kost): ?>
+              <option value="<?= $kost['id_kamar'] ?>"><?= $kost['nama_kost'] ?> - <?= $kost['no_kamar']; ?></option>
+              <?php endforeach; ?>
+            </select>
           </div>
           <div class="mb-3">
             <label for="tgl_sewa_awal" class="form-label">Tanggal Sewa Awal</label>
@@ -84,8 +92,8 @@
         <?php foreach ($data["transaksi"] as $tr): ?>
         <tr>
           <th scope="row"><?= $i ?></th>
-          <td><?= $tr["id_user"] ?></td>
-          <td scope="row"><?= $tr["id_kamar"] ?></td>
+          <td><?= $tr["nama_user"] ?></td>
+          <td scope="row"><?= $tr["nama_kost"]?> - <?= $tr['no_kamar']; ?></td>
           <td scope="row"><?= $tr["tgl_sewa_awal"] ?></td>
           <td scope="row"><?= $tr["tgl_sewa_akhir"] ?></td>
           <td scope="row"><?= $tr["total_harga"] ?></td>

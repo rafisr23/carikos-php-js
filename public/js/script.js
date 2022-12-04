@@ -199,7 +199,7 @@ $(function () {
     $(".modal-body form").attr("action", "http://pemweb-project-uts2.local/transaksi/addTransaksi");
     $("#judulModalKost").html("Tambah Data Transaksi");
     $(".modal-footer button[type=submit]").html("Tambah Data");
-    $("#id_user").val("");
+    $("#id_user").val("none");
     $("#id_kamar").val("");
     $("#tgl_sewa_awal").val("");
     $("#tgl_sewa_akhir").val("");

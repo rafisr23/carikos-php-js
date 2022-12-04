@@ -7,8 +7,14 @@ class TransaksiModel {
         $this->db = new Database;
     }
 
-    public function getAllTransaksi() {
-        $query = "SELECT * FROM transaksi INNER JOIN users ON transaksi.id_user = users.id_user INNER JOIN kamar_kost ON transaksi.id_kamar = kamar_kost.id_kamar";
+    public function getAllTransaksi()
+    {
+        $this->db->query('SELECT * FROM transaksi');
+        return $this->db->resultSet();
+    }
+
+    public function getAllTransaksiWithUser() {
+        $query = "SELECT * FROM transaksi INNER JOIN users ON transaksi.id_user = users.id_user INNER JOIN kamar_kost ON transaksi.id_kamar = kamar_kost.id_kamar INNER JOIN kost ON kamar_kost.id_kost = kost.id_kost";
         $this->db->query($query);
         return $this->db->resultSet();
     }

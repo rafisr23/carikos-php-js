@@ -26,6 +26,11 @@ class KostModel {
     $this->db->query('SELECT * FROM kost INNER JOIN owners ON kost.id_owner = owners.id_owner');
     return $this->db->resultSet();
   }
+
+  public function getAllKostWithKamar() {
+    $this->db->query('SELECT * FROM kost INNER JOIN kamar_kost ON kost.id_kost = kamar_kost.id_kost');
+    return $this->db->resultSet();
+  }
   
 
   public function storeKost($data) {

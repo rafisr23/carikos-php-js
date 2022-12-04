@@ -10,11 +10,14 @@ class Transaksi extends Controller {
 
       $data['active'] = $first_part;
       $data['pageTitle'] = 'CARIKOS | Daftar Transaksi';
-      $data['transaksi'] = $this->model('TransaksiModel')->getAllTransaksi();
+    //   $data['transaksi'] = $this->model('TransaksiModel')->getAllTransaksi();
+      $data['transaksi'] = $this->model('TransaksiModel')->getAllTransaksiWithUser();
+      $data['user'] = $this->model('UsersModel')->getAllUsers();
+      $data['kost'] = $this->model('KostModel')->getAllKostWithKamar();
 
-      // var_dump($components[3]);
+    //   var_dump($data['kost']);
+    //   return;
       // echo $first_part;
-      // return;
 
       $this->view('templates/header', $data);
       $this->view('transaksi/index', $data);
