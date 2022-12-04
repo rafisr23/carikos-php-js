@@ -24,6 +24,11 @@ class KamarKostModel {
     return $this->db->single();
   }
 
+  public function getLastIdKamar() {
+    $this->db->query('SELECT * FROM kamar_kost ORDER BY id_kamar DESC');
+    return $this->db->single();
+  }
+
   public function storeKamarKost($data) {
     $query = "INSERT INTO kamar_kost(id_kamar, id_kost, no_kamar, fasilitas_kamar, kapasitas_kamar, harga_kamar ) VALUES (null,:id_kost, :no_kamar, :fasilitas_kamar, :kapasitas_kamar, :harga_kamar)";
 

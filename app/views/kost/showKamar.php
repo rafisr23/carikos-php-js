@@ -135,6 +135,11 @@
       <div class="modal-body">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
           <div class="carousel-indicators">
+            <!-- <?php foreach($data['jmlFoto'] as $jmlFoto): ?>
+            <button type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="<?= $jmlFoto['id_foto'] ?>" class="active" aria-current="true"
+              aria-label="Slide 1"></button>
+            <?php endforeach; ?> -->
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
               aria-current="true" aria-label="Slide 1"></button>
             <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
@@ -143,11 +148,12 @@
               aria-label="Slide 3"></button> -->
           </div>
           <div class="carousel-inner">
-            <?php foreach($data['fotoKost'] as $foto): ?>
             <div class="carousel-item active">
-              <img src="<?= BASEURL; ?>/img/<?= $foto['nama_file']; ?>" class="d-block w-100" alt="...">
+              <img src="<?= BASEURL; ?>/img/kamar/<?= $foto['nama_file']; ?>" class="d-block w-100 img-carousel"
+                alt="...">
             </div>
-            <?php endforeach; ?>
+            <!-- <?php foreach($data['fotoKost'] as $foto): ?> -->
+            <!-- <?php endforeach; ?> -->
             <!-- <div class="carousel-item">
               <img src="<?= BASEURL; ?>/img/63870b80c0aca.jpg" class="d-block w-100" alt="...">
             </div>
@@ -221,9 +227,9 @@
             <td class="col-3 align-middle text-start"><?= $kost["fasilitas_kamar"] ?></td>
             <td class="col-3 align-middle text-start"><?= $kost["harga_kamar"] ?></td>
             <td class="aksi">
-              <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal"
-                data-bs-target="#carouselModal">
-                <i class="bi bi-image"></i>
+              <button type="button" class="btn btn-outline-success me-2 btnShowFoto" data-bs-toggle="modal"
+                data-bs-target="#carouselModal" data-id="<?= $kost['id_kamar'] ?>">
+                <i class=" bi bi-image"></i>
               </button>
               <a href="<?= BASEURL; ?>/kost/editKamarKost/<?= $kost['id_kamar'] ?>" class="tampilModalUbahKamarKost"
                 data-id="<?= $kost['id_kamar'] ?>" data-bs-toggle="modal"
