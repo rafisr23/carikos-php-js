@@ -30,17 +30,11 @@ class Kost extends Controller {
     $data['kost'] = $this->model('KamarKostModel')->getAllKamarBasedOnKost($id);
     $data['owners'] = $this->model('OwnerModel')->getAllOwners();
     $data['detailKost'] = $this->model('KostModel')->getKostById($id);
+    $data['fotoKost'] = $this->model('FotoKamar')->getFotoByKamar($id);
+    // $data['fotoKost'] = $data['fotoKost']
     // $data['kost'] = $data['kost'][0];
-    // var_dump($data['detailKost']);
+    // var_dump($data['fotoKost'][0]['nama_file']);
     // return;
-    
-    // if($data['kost'] == null) {
-    //   echo "Kost tidak ditemukan";
-    //   return;
-    // } else {
-    //   echo "Kost ditemukan";
-    //   return;
-    // }
 
     $this->view('templates/header', $data);
     $this->view('kost/showKamar', $data);
