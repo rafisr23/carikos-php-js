@@ -50,7 +50,7 @@
               placeholder="Masukan alamat user" cols="30" rows="5" autocomplete="off"></textarea>
           </div>
           <div class="mb-3">
-            <label for="no_tlp_user" class="form-label">No Telepn</label>
+            <label for="no_tlp_user" class="form-label">No Telepon</label>
             <input type="text" class="form-control" name="no_tlp_user" id="no_tlp_user"
               placeholder="Masukan no telepon user" autocomplete="off">
           </div>

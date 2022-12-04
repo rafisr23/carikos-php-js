@@ -47,7 +47,7 @@
                 placeholder="Masukan alamat pemilik" cols="30" rows="5" autocomplete="off"></textarea>
             </div>
             <div class="mb-3">
-              <label for="no_tlp_owner" class="form-label">No Telepn</label>
+              <label for="no_tlp_owner" class="form-label">No Telepon</label>
               <input type="text" class="form-control" name="no_tlp_owner" id="no_tlp_owner"
                 placeholder="Masukan no telepon pemilik" autocomplete="off">
             </div>

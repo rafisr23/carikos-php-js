@@ -90,7 +90,7 @@
                   <a href="<?= BASEURL; ?>/kost">Kost</a>
                 </li>
                 <li class="submenu-item">
-                  <a href="extra-component-divider.html">Transaksi</a>
+                  <a href="<?= BASEURL; ?>/transaksi">Transaksi</a>
                 </li>
               </ul>
             </li>
