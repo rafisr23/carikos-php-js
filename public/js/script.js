@@ -1,9 +1,9 @@
-// console.log("hello");
 $(function () {
+  // console.log("hello");
   // ubah pada views user
   $(".tambahUser").on("click", function () {
     // alert("hello");
-    $(".modal-body form").attr("action", "http://localhost/pemweb-project-uts2/public/users/addUser");
+    $(".modal-body form").attr("action", "http://pemweb-project-uts2.local/users/addUser");
     $("#judulModal").html("Tambah Data User");
     $(".modal-footer button[type=submit]").html("Tambah Data");
     $("#nama_user").val("");
@@ -17,17 +17,17 @@ $(function () {
   });
 
   $(".tampilModalUbah").on("click", function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     $("#judulModal").html("Ubah Data User");
     $(".modal-footer button[type=submit").html("Ubah Data");
-    $(".modal-body form").attr("action", "http://localhost/pemweb-project-uts2/public/users/editUser");
+    $(".modal-body form").attr("action", "http://pemweb-project-uts2.local/users/editUser");
 
     const id = $(this).data("id");
     // console.log(id);
     // console.log("OK");
 
     $.ajax({
-      url: "http://localhost/pemweb-project-uts2/public/users/getEdit",
+      url: "http://pemweb-project-uts2.local/users/getEdit",
       data: { id: JSON.parse(JSON.stringify(id)) },
       method: "post",
       dataType: "json",
@@ -43,7 +43,7 @@ $(function () {
         // $("#fotoMenu").val(data.foto);
         $("#foto_ktp_user_old").val(data.foto_ktp_user);
         $(".img-preview").css("display", "block");
-        $(".img-preview").attr("src", "http://localhost/pemweb-project-uts2/public/img/" + data.foto_ktp_user);
+        $(".img-preview").attr("src", "http://pemweb-project-uts2.local/img/" + data.foto_ktp_user);
         // $("#foto").attr("class", "mb-3");
       },
     });
@@ -54,7 +54,7 @@ $(function () {
   // UBAH PADA VIEW OWNER
   $(".tambahOwner").on("click", function () {
     // alert("hello");
-    $(".modal-body form").attr("action", "http://localhost/pemweb-project-uts2/public/owners/addOwner");
+    $(".modal-body form").attr("action", "http://pemweb-project-uts2.local/owners/addOwner");
     $("#judulModal").html("Tambah Data Pemilik Kost");
     $(".modal-footer button[type=submit]").html("Tambah Data");
     $("#nama_user").val("");
@@ -68,17 +68,17 @@ $(function () {
   });
 
   $(".tampilModalUbahOwner").on("click", function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     $("#judulModal").html("Ubah Data Pemilik Kost");
     $(".modal-footer button[type=submit").html("Ubah Data");
-    $(".modal-body form").attr("action", "http://localhost/pemweb-project-uts2/public/owners/editOwner");
+    $(".modal-body form").attr("action", "http://pemweb-project-uts2.local/owners/editOwner");
 
     const id = $(this).data("id");
     // console.log(id);
     // console.log("OK");
 
     $.ajax({
-      url: "http://localhost/pemweb-project-uts2/public/owners/getEdit",
+      url: "http://pemweb-project-uts2.local/owners/getEdit",
       data: { id: JSON.parse(JSON.stringify(id)) },
       method: "post",
       dataType: "json",
@@ -94,123 +94,56 @@ $(function () {
         // $("#fotoMenu").val(data.foto);
         $("#foto_ktp_owner_old").val(data.foto_ktp_owner);
         $(".img-preview").css("display", "block");
-        $(".img-preview").attr("src", "http://localhost/pemweb-project-uts2/public/img/" + data.foto_ktp_owner);
+        $(".img-preview").attr("src", "http://pemweb-project-uts2.local/img/" + data.foto_ktp_owner);
         // $("#foto").attr("class", "mb-3");
-      },
-    });
-  });
-
-  $(".tampilUbahCust").on("click", function (e) {
-    e.preventDefault();
-    $("#judulModal").html("Ubah Data Customer");
-    $(".modal-footer button[type=submit]").html("Ubah Data");
-    $(".hilangButton").show();
-    $(".modal-body form").attr("action", "http://localhost/phpmvc/public/customer/ubah");
-
-    const id = $(this).data("id");
-    // console.log(id);
-    // console.log("OK");
-
-    $.ajax({
-      url: "http://localhost/phpmvc/public/customer/getdetail",
-      data: { id: JSON.parse(JSON.stringify(id)) },
-      method: "POST",
-      dataType: "json",
-      success: function (data) {
-        // console.log(result);
-
-        $("#nama").val(data.nama);
-        $("#tgl_lahir").val(data.tgl_lahir);
-        $("#alamat").val(data.alamat);
-        $("#email").val(data.email);
-        $("#username").val(data.username);
-        $("#password").val(data.password);
-        $("#id").val(data.id_cust);
-        $(".modal-body input").prop("disabled", false);
-        $(".modal-body textarea").prop("disabled", false);
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        console.log(textStatus, errorThrown);
       },
     });
   });
 
   // --------------------------------------------------------
 
-  // ubah pada views staff
-  $(".tambahStaff").on("click", function () {
-    $("#judulModal").html("Tambah Data Staff");
-    $(".modal-footer button[type=submit").html("Tambah Data");
-    $(".hilangButton").show();
-    $(".modal-body input").prop("disabled", false);
-    $(".modal-body textarea").prop("disabled", false);
+  $(".btnTambahKost").on("click", function () {
+    // alert("hello");
+    $(".modal-body form").attr("action", "http://pemweb-project-uts2.local/kost/addKost");
+    $("#judulModalKost").html("Tambah Data Kost");
+    $(".modal-footer button[type=submit]").html("Tambah Data");
+    $("#nama_kost").val("");
+    $("#id_owner").val("none");
+    $("#alamat_kost").val("");
+    $("#fasilitas_kost").val("");
+    $("#kategori_kost").val("none");
   });
 
-  // details
-  $(".tampilDetailStaff").on("click", function (e) {
-    e.preventDefault();
-    $("#judulModal").html("Detail Staff");
-    $(".hilangButton").hide();
-
-    const id = $(this).data("id");
-    console.log(id);
-    // console.log("OK");
-
-    $.ajax({
-      url: "http://localhost/phpmvc/public/staff/getdetail",
-      data: { id: JSON.parse(JSON.stringify(id)) },
-      method: "POST",
-      dataType: "json",
-      success: function (data) {
-        // console.log(result);
-
-        $("#nama").val(data.nama);
-        $("#tgl_lahir").val(data.tgl_lahir);
-        $("#alamat").val(data.alamat);
-        $("#email").val(data.email);
-        $("#username").val(data.username);
-        $("#password").val(data.password);
-        $("#id").val(data.id_cust);
-        $(".modal-body input").prop("disabled", true);
-        $(".modal-body textarea").prop("disabled", true);
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        console.log(textStatus, errorThrown);
-      },
-    });
-  });
-
-  $(".tampilUbahStaff").on("click", function (e) {
-    e.preventDefault();
-    $("#judulModal").html("Ubah Data Staff");
-    $(".modal-footer button[type=submit]").html("Ubah Data");
-    $(".hilangButton").show();
-    $(".modal-body form").attr("action", "http://localhost/phpmvc/public/staff/ubah");
+  $(".tampilModalUbahKost").on("click", function (e) {
+    // e.preventDefault();
+    $("#judulModalKost").html("Ubah Data Kost");
+    $(".modal-footer button[type=submit").html("Ubah Data");
+    $(".modal-body form").attr("action", "http://pemweb-project-uts2.local/kost/editKost");
 
     const id = $(this).data("id");
     // console.log(id);
     // console.log("OK");
 
     $.ajax({
-      url: "http://localhost/phpmvc/public/staff/getdetail",
+      url: "http://pemweb-project-uts2.local/kost/getEdit",
       data: { id: JSON.parse(JSON.stringify(id)) },
-      method: "POST",
+      method: "post",
       dataType: "json",
       success: function (data) {
-        // console.log(result);
-
-        $("#nama").val(data.nama);
-        $("#tgl_lahir").val(data.tgl_lahir);
-        $("#alamat").val(data.alamat);
-        $("#email").val(data.email);
-        $("#username").val(data.username);
-        $("#password").val(data.password);
-        $("#id").val(data.id_staff);
-        $(".modal-body input").prop("disabled", false);
-        $(".modal-body textarea").prop("disabled", false);
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        console.log(textStatus, errorThrown);
+        console.log(data);
+        $("#nama_kost").val(data.nama_kost);
+        $("#id_kost").val(data.id_kost);
+        $("#id_owner").val(data.id_owner);
+        $("#alamat_kost").val(data.alamat_kost);
+        $("#fasilitas_kost").val(data.fasilitas_kost);
+        $("#kategori_kost").val(data.kategori_kost);
+        // $("#id_owner").val(data.id_owner);
+        // $(".frameFoto").show();
+        // $("#fotoMenu").val(data.foto);
+        // $("#foto_ktp_owner_old").val(data.foto_ktp_owner);
+        // $(".img-preview").css("display", "block");
+        // $(".img-preview").attr("src", "http://pemweb-project-uts2.local/img/" + data.foto_ktp_owner);
+        // $("#foto").attr("class", "mb-3");
       },
     });
   });

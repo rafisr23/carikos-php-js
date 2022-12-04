@@ -13,12 +13,15 @@
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/main.css">
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/main/app.css">
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/main/app-dark.css">
-  <link rel="stylesheet" href="<?= BASEURL; ?>/css/shared/iconly.css">
+  <!-- <link rel="stylesheet" href="<?= BASEURL; ?>/css/shared/iconly.css"> -->
   <!-- <link rel="stylesheet" href="./main.css"> -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" -->
+  <!-- integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
   <!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" /> -->
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -71,20 +74,20 @@
                 <span>Dashboard</span>
               </a>
             </li>
-            <li class="sidebar-item has-sub <?= ($data['active'] == 'users' || 'owners') ? 'active' : ''; ?>">
+            <li class="sidebar-item has-sub <?= ($data['active'] === 'users' || 'owners' ) ? 'active' : ''; ?>">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-collection-fill"></i>
                 <span>Tables</span>
               </a>
               <ul class="submenu">
-                <li class="submenu-item <?= ($data['active'] == 'users') ? 'active' : ''; ?>">
+                <li class="submenu-item <?= ($data['active'] === 'users') ? 'active' : ''; ?>">
                   <a href="<?= BASEURL; ?>/users">Users</a>
                 </li>
-                <li class="submenu-item <?= ($data['active'] == 'owners') ? 'active' : ''; ?>">
+                <li class="submenu-item <?= ($data['active'] === 'owners') ? 'active' : ''; ?>">
                   <a href="<?= BASEURL; ?>/owners">Owners</a>
                 </li>
                 <li class="submenu-item">
-                  <a href="extra-component-toastify.html">Kost</a>
+                  <a href="<?= BASEURL; ?>/kost">Kost</a>
                 </li>
                 <li class="submenu-item">
                   <a href="extra-component-rating.html">Kamar</a>

@@ -1,6 +1,6 @@
 <?php
 // change this to your own path
-define('BASEURL', 'http://localhost/pemweb-project-uts2/public'); 
+define('BASEURL', 'http://pemweb-project-uts2.local'); 
 
 // DATABASE
 // change this to your own database
