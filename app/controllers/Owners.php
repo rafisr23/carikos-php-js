@@ -6,7 +6,7 @@ class Owners extends Controller {
       $directoryURI = $_SERVER['REQUEST_URI'];
       $path = parse_url($directoryURI, PHP_URL_PATH);
       $components = explode('/', $path);
-      $first_part = $components[3];
+      $first_part = $components[1];
 
       $data['active'] = $first_part;
       $data['pageTitle'] = 'CARIKOS | Daftar Pemilik Kost';

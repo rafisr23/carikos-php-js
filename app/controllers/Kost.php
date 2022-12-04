@@ -4,7 +4,7 @@ class Kost extends Controller {
     $directoryURI = $_SERVER['REQUEST_URI'];
     $path = parse_url($directoryURI, PHP_URL_PATH);
     $components = explode('/', $path);
-    $first_part = $components[3];
+    $first_part = $components[1];
 
     $data['active'] = $first_part;
     $data['pageTitle'] = 'CARIKOS | Daftar Kost';
@@ -16,6 +16,25 @@ class Kost extends Controller {
 
     $this->view('templates/header', $data);
     $this->view('kost/index', $data);
+    $this->view('templates/footer');
+  }
+
+  public function showKamar($id) {
+    $directoryURI = $_SERVER['REQUEST_URI'];
+    $path = parse_url($directoryURI, PHP_URL_PATH);
+    $components = explode('/', $path);
+    $first_part = $components[1];
+
+    $data['active'] = $first_part;
+    $data['pageTitle'] = 'CARIKOS | Kamar Kost';
+    $data['kost'] = $this->model('KamarKostModel')->getAllKamarBasedOnKost($id);
+    $data['owners'] = $this->model('OwnerModel')->getAllOwners();
+    // $data['kost'] = $data['kost'][0];
+    // var_dump($data['kost']);
+    // return;
+
+    $this->view('templates/header', $data);
+    $this->view('kost/showKamar', $data);
     $this->view('templates/footer');
   }
 

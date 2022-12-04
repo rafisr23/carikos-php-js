@@ -104,8 +104,10 @@
             <td class="col-3 align-middle text-start"><?= $kost["nama_owner"] ?></td>
             <td class="col-3 align-middle text-start"><?= $kost["no_tlp_owner"] ?></td>
             <td class="aksi">
-              <a href="<?= BASEURL; ?>/kost/editKost/<?= $kost['id_kost'] ?>" data-bs-toggle="modal"
-                data-bs-target="#formModal" class="tampilModalUbahKost" data-id="<?= $kost['id_kost'] ?>"><button
+              <a href="<?= BASEURL; ?>/kost/showKamar/<?= $kost['id_kost'] ?>" class="tampilModalUbahKost"><button
+                  class="btn btn-outline-info me-2"><i class="bi bi-eye-fill"></i></button></a>
+              <a href="<?= BASEURL; ?>/kost/showKamar/<?= $kost['id_kost'] ?>" class="tampilModalUbahKost"
+                data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $kost['id_kost'] ?>"><button
                   class="btn btn-outline-primary me-2"><i class=" bi bi-pencil-fill"></i></button></a>
               <a href="<?= BASEURL ?>/kost/deleteKost/<?= $kost['id_kost'] ?>"
                 onclick="return confirm('Yakin hapus data?');"><button class=" btn btn-outline-danger"><i
