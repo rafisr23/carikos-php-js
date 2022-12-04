@@ -69,11 +69,12 @@
   </div>
 </div>
 
+
 <div class="page-content">
-  <h3><?= $data["kost"][0]["nama_kost"]; ?></h3>
-  <p><span class="fw-bold text-primary">Alamat Kost :</span> <?= $data['kost'][0]['alamat_kost']; ?></p>
-  <p><span class="fw-bold text-primary">Kategori Kost :</span> <?= $data['kost'][0]['kategori_kost']; ?></p>
-  <p><span class="fw-bold text-primary">Fasilitas Kost :</span> <?= $data['kost'][0]['fasilitas_kost']; ?></p>
+  <h3><?= $data["detailKost"]["nama_kost"]; ?></h3>
+  <p><span class="fw-bold text-primary">Alamat Kost :</span> <?= $data['detailKost']['alamat_kost']; ?></p>
+  <p><span class="fw-bold text-primary">Kategori Kost :</span> <?= $data['detailKost']['kategori_kost']; ?></p>
+  <p><span class="fw-bold text-primary">Fasilitas Kost :</span> <?= $data['detailKost']['fasilitas_kost']; ?></p>
 
 
   <button type="button" class="btn btn-info btnTambahKamar me-2" data-bs-toggle="modal" data-bs-target="#formModal">
@@ -86,6 +87,9 @@
     onclick="return confirm('Yakin hapus data?');"><button class=" btn btn-danger me-2"><i
         class="bi bi-trash-fill me-2"></i>Hapus Data Kost</button></a>
 
+  <?php if($data['kost']==null): ?>
+  <p>Kamar belum tersedia.</p>
+  <?php else : ?>
   <div class="row my-3">
     <div class="col">
       <table
@@ -124,4 +128,5 @@
       </table>
     </div>
   </div>
+  <?php endif; ?>
 </div>

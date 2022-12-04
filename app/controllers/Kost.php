@@ -29,9 +29,18 @@ class Kost extends Controller {
     $data['pageTitle'] = 'CARIKOS | Kamar Kost';
     $data['kost'] = $this->model('KamarKostModel')->getAllKamarBasedOnKost($id);
     $data['owners'] = $this->model('OwnerModel')->getAllOwners();
+    $data['detailKost'] = $this->model('KostModel')->getKostById($id);
     // $data['kost'] = $data['kost'][0];
-    // var_dump($data['kost']);
+    // var_dump($data['detailKost']);
     // return;
+    
+    // if($data['kost'] == null) {
+    //   echo "Kost tidak ditemukan";
+    //   return;
+    // } else {
+    //   echo "Kost ditemukan";
+    //   return;
+    // }
 
     $this->view('templates/header', $data);
     $this->view('kost/showKamar', $data);
