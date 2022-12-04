@@ -88,6 +88,46 @@ class Kost extends Controller {
       exit;
     }
   }
+
+  public function addKamarKost() {
+    if($this->model('KamarKostModel')->storeKamarKost($_POST) > 0) {
+      Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+      header('Location: ' . BASEURL . '/kost/showKamar/' . $_POST['id_kost']);
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+      header('Location: ' . BASEURL . '/kost/showKamar/' . $_POST['id_kost']);
+      exit;
+    }
+  }
+
+  public function deleteKamarKost($id) {
+    if($this->model('KamarKostModel')->deleteKamarKost($id) > 0) {
+      Flasher::setFlash('berhasil', 'dihapus', 'success');
+      header('Location: ' . BASEURL . '/kost');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'dihapus', 'danger');
+      header('Location: ' . BASEURL . '/kost');
+      exit;
+    }
+  }
+
+  public function editKamarKost() {
+    if ($this->model('KamarKostModel')->updateKamarKost($_POST) > 0) {
+      Flasher::setFlash('berhasil', 'diubah', 'success');
+      header('Location: ' . BASEURL . '/kost');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'diubah', 'danger');
+      header('Location: ' . BASEURL . '/kost');
+      exit;
+    }
+  }
+
+  public function getEditKamar() {
+    echo json_encode($this->model('KamarKostModel')->getKamarKostById($_POST['id']));
+  }
 }
 
 ?>

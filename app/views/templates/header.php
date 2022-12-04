@@ -90,9 +90,6 @@
                   <a href="<?= BASEURL; ?>/kost">Kost</a>
                 </li>
                 <li class="submenu-item">
-                  <a href="extra-component-rating.html">Kamar</a>
-                </li>
-                <li class="submenu-item">
                   <a href="extra-component-divider.html">Transaksi</a>
                 </li>
               </ul>
