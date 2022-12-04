@@ -45,13 +45,13 @@
           </div>
           <div class="mb-3">
             <label for="total_harga" class="form-label">Total harga</label>
-            <input type="text" class="form-control" id="total_harga" name="total_harga" placeholder="Masukan total harga"
-              autocomplete="off">
+            <input type="text" class="form-control" id="total_harga" name="total_harga"
+              placeholder="Masukan total harga" autocomplete="off">
           </div>
           <div class="mb-3">
             <label for="tgl_bayar" class="form-label">Tanggal Bayar</label>
-            <input type="date" class="form-control" id="tgl_bayar" name="tgl_bayar"
-              placeholder="Masukan tanggal bayar" autocomplete="off">
+            <input type="date" class="form-control" id="tgl_bayar" name="tgl_bayar" placeholder="Masukan tanggal bayar"
+              autocomplete="off">
           </div>
       </div>
       <div class="modal-footer">
