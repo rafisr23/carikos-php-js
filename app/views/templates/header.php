@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $data['pageTitle']; ?></title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/5973/5973800.png?v=2">
 
   <!-- add your css file in here -->
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/style.css">
