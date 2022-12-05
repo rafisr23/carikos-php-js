@@ -205,8 +205,7 @@
   <?php else : ?>
   <div class="row my-3">
     <div class="col">
-      <table
-        class="table bg-white rounded shadow-sm table-hover align-middle table-responsive table-bordered text-center">
+      <table class="table bg-white rounded shadow-sm table-hover align-middle table-bordered text-center">
         <thead>
           <tr>
             <th scope="col">No</th>
