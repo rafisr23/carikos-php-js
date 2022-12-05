@@ -13,6 +13,12 @@ class KostModel {
     return $this->db->resultSet();
   }
 
+  public function getCountKost()
+  {
+    $this->db->query('SELECT COUNT(nama_kost) FROM kost');
+    return $this->db->single();
+  }
+
   public function getKostById($id) {
     $query = "SELECT * FROM kost WHERE id_kost= :id";
     // $this->db->query('SELECT * FROM kost WHERE id = :id');

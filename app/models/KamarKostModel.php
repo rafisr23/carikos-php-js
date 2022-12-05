@@ -16,6 +16,11 @@ class KamarKostModel {
     return $this->db->resultSet();
   }
 
+  public function getAllKamar() {
+    $this->db->query('SELECT * FROM kamar_kost');
+    return $this->db->resultSet();
+  }
+
   public function getKamarKostById($id) {
     $query = "SELECT * FROM kamar_kost WHERE id_kamar= :id";
     // $this->db->query('SELECT * FROM kost WHERE id = :id');
