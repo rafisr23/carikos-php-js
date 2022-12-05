@@ -239,6 +239,7 @@ $(function () {
     const id = $(this).data("id");
     $(".modal-title").html("Foto Kamar Kost");
     console.log("HELLOO" + id);
+    $(".modal-title").html("Foto Kamar Kost");
     $.ajax({
       url: "http://pemweb-project-uts2.test:8080/kost/getFoto",
       data: { id: JSON.parse(JSON.stringify(id)) },
