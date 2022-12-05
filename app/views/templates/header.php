@@ -31,7 +31,7 @@
         <div class="sidebar-header position-relative">
           <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-              <a href="index.html"><img src="<?= BASEURL; ?>/img/logo/logo.svg" alt="Logo" srcset="" /></a>
+              <a href="index.html" class="fs-6"><img src="<?= BASEURL; ?>/img/logo/favicon.svg" alt="Logo" srcset="" /><span class="ms-2 flex align-center">CARIKOST</span></a>
             </div>
             <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -68,13 +68,13 @@
         <div class="sidebar-menu">
           <ul class="menu">
             <li class="sidebar-title">Menu</li>
-            <li class="sidebar-item <?= ($data['active'] == '') ? 'active' : ''; ?>">
+            <li class="sidebar-item">
               <a href="<?= BASEURL; ?>" class="sidebar-link">
                 <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
               </a>
             </li>
-            <li class="sidebar-item has-sub <?= ($data['active'] === 'users' || 'owners' ) ? 'active' : ''; ?>">
+            <li class="sidebar-item has-sub">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-collection-fill"></i>
                 <span>Tables</span>
