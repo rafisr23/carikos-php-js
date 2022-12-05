@@ -238,6 +238,7 @@ $(function () {
   $(".btnShowFoto").on("click", function () {
     const id = $(this).data("id");
     console.log("HELLOO" + id);
+    $(".modal-title").html("Foto Kamar Kost");
     $.ajax({
       url: "http://pemweb-project-uts2.test:8080/kost/getFoto",
       data: { id: JSON.parse(JSON.stringify(id)) },
@@ -245,7 +246,6 @@ $(function () {
       dataType: "json",
       success: function (data) {
         console.log(data);
-        Cookies.set("foto", data);
         $("#id_transaksi").val(data.id_transaksi);
         $(".img-carousel").attr("src", "http://pemweb-project-uts2.test:8080/img/kamar/" + data[0].nama_file);
       },
